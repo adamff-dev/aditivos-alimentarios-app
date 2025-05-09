@@ -12,6 +12,10 @@ The **Aditivos Alimenticios** app allows users to search for food additives by n
 - Stores additive data locally for offline use.
 - Automatically updates the database when an internet connection is available.
 
+## Screenshot
+
+<img src="https://i.imgur.com/IoDOHPY.jpeg" width="300" />
+
 ## Technologies
 
 - **Kotlin**: Programming language used for Android app development.
