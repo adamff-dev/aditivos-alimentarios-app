@@ -1,6 +1,8 @@
 package com.addev.aditivosalimentarios.adapter
 
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.addev.aditivosalimentarios.R
 import com.addev.aditivosalimentarios.model.AdditiveWithAltNames
 
-private const val ADITIVOS_ALIMENTARIOS_WEBSITE = "https://www.aditivos-alimentarios.com/"
+private const val ADITIVOS_ALIMENTARIOS_WEBSITE = "https://www.aditivos-alimentarios.com/2016/01/"
 
 class AditivoAdapter(private val additives: List<AdditiveWithAltNames>) :
     RecyclerView.Adapter<AditivoAdapter.AditivoViewHolder>() {
@@ -45,10 +47,15 @@ class AditivoAdapter(private val additives: List<AdditiveWithAltNames>) :
 
         // Configurar el clic para abrir el navegador
         holder.itemView.setOnClickListener {
-//            if (aditivo.link?.isNotEmpty() == true) {
-//                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(ADITIVOS_ALIMENTARIOS_WEBSITE + aditivo.link))
-//                holder.itemView.context.startActivity(browserIntent)
-//            }
+            val codeFormatted = aditivo.additive?.code?.let { code ->
+                if (code.contains('(')) {
+                    code.replaceFirst('(', '-').replace(")", "")
+                } else {
+                    code
+                }
+            }
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("$ADITIVOS_ALIMENTARIOS_WEBSITE$codeFormatted.html"))
+            holder.itemView.context.startActivity(browserIntent)
         }
     }
 
