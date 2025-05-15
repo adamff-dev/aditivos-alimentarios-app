@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.addev.aditivosalimentarios.R
-import com.addev.aditivosalimentarios.model.Aditivo
+import com.addev.aditivosalimentarios.model.AdditiveWithAltNames
 
-class AditivoAdapter(private val aditivos: List<Aditivo>) :
+private const val ADITIVOS_ALIMENTARIOS_WEBSITE = "https://www.aditivos-alimentarios.com/"
+
+class AditivoAdapter(private val additives: List<AdditiveWithAltNames>) :
     RecyclerView.Adapter<AditivoAdapter.AditivoViewHolder>() {
 
     class AditivoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -25,19 +27,31 @@ class AditivoAdapter(private val aditivos: List<Aditivo>) :
     }
 
     override fun onBindViewHolder(holder: AditivoViewHolder, position: Int) {
-        val aditivo = aditivos[position]
-        holder.tvNumero.text = aditivo.numero
-        holder.tvNombre.text = aditivo.nombre
-        holder.tvToxicidad.text = aditivo.toxicidad
+        val aditivo = additives[position]
+        holder.tvNumero.text = aditivo.additive?.code
+        holder.tvNombre.text = aditivo.additive?.name
+        holder.tvToxicidad.text = aditivo.additive?.toxicity
 
-        if (aditivo.toxicidad == "Alta") {
+        // Cambiar color según la toxicidad
+        if (aditivo.additive?.toxicity == "ALTA") {
             holder.tvToxicidad.setTextColor(Color.parseColor("#ff3d3d"))
-        } else if (aditivo.toxicidad == "Media") {
-            holder.tvToxicidad.setTextColor(Color.YELLOW)
-        } else {
+        } else if (aditivo.additive?.toxicity == "MEDIA") {
+            holder.tvToxicidad.setTextColor(Color.parseColor("#ffb300"))
+        } else if (aditivo.additive?.toxicity == "BAJA") {
             holder.tvToxicidad.setTextColor(Color.parseColor("#00960d"))
+        } else {
+            holder.tvToxicidad.setTextColor(Color.BLACK)
+        }
+
+        // Configurar el clic para abrir el navegador
+        holder.itemView.setOnClickListener {
+//            if (aditivo.link?.isNotEmpty() == true) {
+//                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(ADITIVOS_ALIMENTARIOS_WEBSITE + aditivo.link))
+//                holder.itemView.context.startActivity(browserIntent)
+//            }
         }
     }
 
-    override fun getItemCount() = aditivos.size
+
+    override fun getItemCount() = additives.size
 }

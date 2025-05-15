@@ -1,0 +1,33 @@
+package com.addev.aditivosalimentarios.model
+
+import androidx.annotation.NonNull
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Index
+import androidx.room.PrimaryKey
+@Entity(
+    tableName = "alt_names",
+    foreignKeys = [ForeignKey(
+        entity = Additive::class,
+        parentColumns = ["id"],
+        childColumns = ["additive_id"],
+        onDelete = ForeignKey.NO_ACTION  // matches your DB
+    )],
+    indices = [Index("additive_id")]
+)
+data class AltName(
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    val id: Int = 0,
+
+    @ColumnInfo(name = "alt_name")
+    val altName: String,
+
+    @ColumnInfo(name = "additive_id")
+    val additiveId: Int? = null,
+
+    @ColumnInfo(name = "lang")
+    val lang: String? = null
+)
+

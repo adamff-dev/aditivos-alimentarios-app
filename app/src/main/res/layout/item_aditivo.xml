@@ -3,14 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/item_border_rounded"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_margin="5dp"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/tvNumero"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Número"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNumero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Número"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_gravity="start"/>
+
+        <TextView
+            android:id="@+id/tvToxicidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/border_rounded"
+            android:text="Toxicidad"
+            android:layout_gravity="end" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvNombre"
@@ -18,14 +42,4 @@
         android:layout_height="wrap_content"
         android:text="Nombre" />
 
-    <TextView
-        android:id="@+id/tvToxicidad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        android:background="@drawable/border_rounded"
-        android:text="Toxicidad" />
 </LinearLayout>

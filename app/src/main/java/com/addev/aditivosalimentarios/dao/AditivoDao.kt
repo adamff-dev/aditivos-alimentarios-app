@@ -1,37 +1,42 @@
 package com.addev.aditivosalimentarios.dao
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.addev.aditivosalimentarios.model.Aditivo
+import com.addev.aditivosalimentarios.model.AdditiveWithAltNames
 import java.util.Locale
 
 @Dao
 interface AditivoDao {
 
-    @Query("SELECT * FROM aditivos WHERE UPPER(numero) = UPPER(:term)")
-    fun findByNumber(term: String): List<Aditivo>
+    @Query("SELECT * FROM additives WHERE UPPER(code) = UPPER(:term)")
+    fun findByCode(term: String): List<AdditiveWithAltNames>
 
-    @Query("SELECT * FROM aditivos WHERE LOWER(nombre) GLOB '*' || :term || '*'")
-    fun findByName(term: String): List<Aditivo>
+    @Query("""
+        SELECT * FROM additives 
+        WHERE LOWER(name) GLOB '*' || :term || '*' 
+        OR id IN (SELECT additive_id FROM alt_names WHERE LOWER(alt_name) GLOB '*' || :term || '*')
+    """)
+    fun findByName(term: String): List<AdditiveWithAltNames>
 
     // Función para buscar múltiples términos
-    fun findByNumbersOrNames(terms: List<String>): List<Aditivo> {
-        val results = mutableListOf<Aditivo>()
+    fun findByNumbersOrNames(terms: List<String>): List<AdditiveWithAltNames> {
+        val results = mutableListOf<AdditiveWithAltNames>()
         for (term in terms) {
             val trimmedTerm = term.trim()
             // Verificar si el término es un número de aditivo utilizando regex
-            if (Regex("^E\\d+\\w+$", RegexOption.IGNORE_CASE).matches(trimmedTerm)) {
-                results.addAll(findByNumber(trimmedTerm))
-            } else if (Regex("^\\d+\\w+$").matches(trimmedTerm)) {
-                results.addAll(findByNumber("E$trimmedTerm"))
+            if (Regex("^E\\d{3,4}$", RegexOption.IGNORE_CASE).matches(trimmedTerm)) {
+                results.addAll(findByCode(trimmedTerm))
+            } else if (Regex("^\\d{3,4}$").matches(trimmedTerm)) {
+                results.addAll(findByCode("E$trimmedTerm"))
             } else {
                 results.addAll(findByName(addTildeOptions(trimmedTerm)))
             }
         }
-        return results.distinct() // Eliminar duplicados
+        return results.distinct()
     }
+
+    @Query("SELECT * FROM additives")
+    fun getAllAditivos(): List<AdditiveWithAltNames>
 
     fun addTildeOptions(searchText: String): String {
         return searchText.lowercase(Locale.getDefault())
@@ -43,10 +48,4 @@ interface AditivoDao {
             .replace("*", "[*]")
             .replace("?", "[?]")
     }
-
-    @Query("SELECT * FROM aditivos")
-    fun getAllAditivos(): List<Aditivo>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(aditivos: List<Aditivo>)
 }
