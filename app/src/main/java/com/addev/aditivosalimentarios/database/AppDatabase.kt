@@ -7,7 +7,7 @@ import com.addev.aditivosalimentarios.model.Additive
 import com.addev.aditivosalimentarios.model.AdditiveWithAltNames
 import com.addev.aditivosalimentarios.model.AltName
 
-@Database(entities = [Additive::class, AltName::class], version = 1)
+@Database(entities = [Additive::class, AltName::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun aditivoDao(): AditivoDao
 }

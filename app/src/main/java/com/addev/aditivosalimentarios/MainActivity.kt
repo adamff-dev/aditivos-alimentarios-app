@@ -1,5 +1,6 @@
 package com.addev.aditivosalimentarios
 
+import android.content.Context
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -20,6 +21,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
+
+    private val dbName = "additives.db"
+    private val dbVersion = 2
+
     private lateinit var aditivoDao: AditivoDao
     private lateinit var etInput: EditText
     private lateinit var btnSearch: Button
@@ -28,16 +33,18 @@ class MainActivity : ComponentActivity() {
     private lateinit var aditivoAdapter: AditivoAdapter
     private lateinit var loadingSpinner: ProgressBar;
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-            etInput = findViewById(R.id.etInput)
-            btnSearch = findViewById(R.id.btnSearch)
-            btnClear = findViewById(R.id.btnClear)
-            rvResults = findViewById(R.id.rvResults)
-            rvResults.layoutManager = LinearLayoutManager(this)
-            loadingSpinner = findViewById(R.id.loadingSpinner)
+        etInput = findViewById(R.id.etInput)
+        btnSearch = findViewById(R.id.btnSearch)
+        btnClear = findViewById(R.id.btnClear)
+        rvResults = findViewById(R.id.rvResults)
+        rvResults.layoutManager = LinearLayoutManager(this)
+        loadingSpinner = findViewById(R.id.loadingSpinner)
+
+        resetDatabaseIfNeeded(applicationContext, dbName, dbVersion)
 
         // Inicializa la base de datos y el DAO
         val db = Room.databaseBuilder(
@@ -79,6 +86,18 @@ class MainActivity : ComponentActivity() {
 
     fun hideLoadingSpinner() {
         loadingSpinner.visibility = View.GONE
+    }
+
+    private fun resetDatabaseIfNeeded(context: Context, dbName: String, currentVersion: Int) {
+        val prefs = context.getSharedPreferences("db_prefs", Context.MODE_PRIVATE)
+        val storedVersion = prefs.getInt("db_version", -1)
+
+        if (storedVersion != currentVersion) {
+            val dbFile = context.getDatabasePath(dbName)
+            if (dbFile.exists()) dbFile.delete()
+
+            prefs.edit().putInt("db_version", currentVersion).apply()
+        }
     }
 
     private fun loadAllAditivos() {

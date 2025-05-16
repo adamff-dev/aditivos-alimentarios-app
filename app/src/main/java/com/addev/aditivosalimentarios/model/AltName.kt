@@ -13,8 +13,7 @@ import androidx.room.PrimaryKey
         parentColumns = ["id"],
         childColumns = ["additive_id"],
         onDelete = ForeignKey.NO_ACTION  // matches your DB
-    )],
-    indices = [Index("additive_id")]
+    )]
 )
 data class AltName(
     @PrimaryKey(autoGenerate = true)
