@@ -8,11 +8,11 @@ import androidx.room.PrimaryKey
 class Additive {
     @PrimaryKey
     var id: Int = 0
-    var code: String? = null
-    var name: String? = null
+    lateinit var code: String
+    lateinit var name: String
+    lateinit var toxicity: String
     var description: String? = null
     var uses: String? = null
     @ColumnInfo(name = "side_effects")
     var sideEffects: String? = null
-    var toxicity: String? = null
 }

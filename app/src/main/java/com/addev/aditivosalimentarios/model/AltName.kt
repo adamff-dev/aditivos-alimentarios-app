@@ -25,9 +25,9 @@ data class AltName(
     val altName: String,
 
     @ColumnInfo(name = "additive_id")
-    val additiveId: Int? = null,
+    val additiveId: Int,
 
     @ColumnInfo(name = "lang")
-    val lang: String? = null
+    val lang: String
 )
 

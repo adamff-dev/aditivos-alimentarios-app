@@ -39,7 +39,7 @@ class AditivoAdapter(private val additives: List<AdditiveWithAltNames>) :
         if (aditivo.additive?.toxicity == "ALTA") {
             holder.tvToxicidad.setTextColor(Color.parseColor("#ff3d3d"))
         } else if (aditivo.additive?.toxicity == "MEDIA") {
-            holder.tvToxicidad.setTextColor(Color.parseColor("#ffb300"))
+            holder.tvToxicidad.setTextColor(Color.parseColor("#b97200"))
         } else if (aditivo.additive?.toxicity == "BAJA") {
             holder.tvToxicidad.setTextColor(Color.parseColor("#00960d"))
         } else {

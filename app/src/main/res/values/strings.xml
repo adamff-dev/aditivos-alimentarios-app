@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Aditivos Alimentarios</string>
-    <string name="search_placeholder">Códigos o nombres separados por comas</string>
-    <string name="search_help">Ej.: 142, E150, Carotenos...</string>
+    <string name="search_label">Códigos o nombres separados por comas</string>
+    <string name="search_placeholder">142, E150, Carotenos...</string>
     <string name="clear">Limpiar</string>
     <string name="search">Buscar</string>
     <!-- Strings used for fragments for navigation -->

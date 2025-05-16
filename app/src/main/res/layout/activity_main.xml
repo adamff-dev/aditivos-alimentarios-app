@@ -6,21 +6,21 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/tvHelperText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_label"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:paddingTop="4dp" />
+
     <EditText
         android:id="@+id/etInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/search_placeholder"
         android:inputType="text" />
-
-    <TextView
-        android:id="@+id/tvHelperText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/search_help"
-        android:textSize="12sp"
-        android:textColor="#888888"
-        android:paddingTop="4dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

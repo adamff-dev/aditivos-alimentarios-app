@@ -22,7 +22,7 @@ interface AditivoDao {
     fun findByNumbersOrNames(terms: List<String>): List<AdditiveWithAltNames> {
         val results = mutableListOf<AdditiveWithAltNames>()
         for (term in terms) {
-            val trimmedTerm = term.trim().replace("\\s+".toRegex(), "").lowercase()
+            val trimmedTerm = term.trim().replace("\\s+".toRegex(), " ").lowercase()
             val normalizedTerm = normalizeCode(trimmedTerm)
             if (Regex("^E\\d{3}[a-z]?(?:\\([ivx]+\\))?\$", RegexOption.IGNORE_CASE).matches(normalizedTerm)) {
                 results.addAll(findByCode(normalizedTerm))
