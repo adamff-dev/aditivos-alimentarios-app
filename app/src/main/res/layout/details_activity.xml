@@ -1,215 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA">
+    android:background="#FAFAFA"
+    android:padding="24dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <!-- Título general -->
         <TextView
-            android:text="Detalles del aditivo"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#2E7D32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"
             android:fontFamily="sans-serif-medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="Detalles del aditivo"
+            android:textColor="#2E7D32"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvToxicity"
-            android:text="Toxicidad"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="12dp"
-            android:layout_gravity="center_horizontal"
             android:background="@drawable/border_rounded"
+            android:padding="8dp"
+            android:text="Toxicidad"
             android:textColor="@android:color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:text="Código"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#1B5E20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="6dp"
             android:fontFamily="sans-serif-medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Código"
+            android:textColor="#1B5E20"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <!-- Separador -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#C8E6C9"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:background="#C8E6C9" />
 
         <TextView
             android:id="@+id/tvCode"
-            android:textSize="18sp"
-            android:textColor="#424242"
-            android:lineSpacingExtra="6dp"
-            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6dp"
+            android:textColor="#424242"
+            android:textSize="18sp" />
 
         <TextView
-            android:text="Nombre"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#1B5E20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="6dp"
             android:fontFamily="sans-serif-medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Nombre"
+            android:textColor="#1B5E20"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <!-- Separador -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#C8E6C9"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:background="#C8E6C9" />
 
         <TextView
             android:id="@+id/tvName"
-            android:textSize="18sp"
-            android:textColor="#424242"
-            android:lineSpacingExtra="6dp"
-            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6dp"
+            android:textColor="#424242"
+            android:textSize="18sp" />
 
         <TextView
-            android:text="Otros nombres"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#1B5E20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="6dp"
             android:fontFamily="sans-serif-medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Otros nombres"
+            android:textColor="#1B5E20"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <!-- Separador -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#C8E6C9"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:background="#C8E6C9" />
 
         <TextView
             android:id="@+id/tvAltNames"
-            android:textSize="18sp"
-            android:textColor="#424242"
-            android:lineSpacingExtra="6dp"
-            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="6dp"
+            android:textColor="#424242"
+            android:textSize="18sp" />
 
         <TextView
-            android:text="Descripción"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#1B5E20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="6dp"
             android:fontFamily="sans-serif-medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Descripción"
+            android:textColor="#1B5E20"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <!-- Separador -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#C8E6C9"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:background="#C8E6C9" />
 
         <TextView
             android:id="@+id/tvDescription"
-            android:textSize="18sp"
-            android:textColor="#424242"
-            android:lineSpacingExtra="10dp"
-            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="10dp"
+            android:textColor="#424242"
+            android:textSize="18sp" />
 
         <TextView
-            android:text="Usos"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#1B5E20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="6dp"
             android:fontFamily="sans-serif-medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Usos"
+            android:textColor="#1B5E20"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <!-- Separador -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#C8E6C9"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:background="#C8E6C9" />
 
         <TextView
             android:id="@+id/tvUses"
-            android:textSize="18sp"
-            android:textColor="#424242"
-            android:lineSpacingExtra="10dp"
-            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="10dp"
+            android:textColor="#424242"
+            android:textSize="18sp" />
 
         <TextView
-            android:text="Efectos secundarios"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="#1B5E20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="6dp"
             android:fontFamily="sans-serif-medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Efectos secundarios"
+            android:textColor="#1B5E20"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <!-- Separador -->
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#C8E6C9"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:background="#C8E6C9" />
 
         <TextView
             android:id="@+id/tvSideEffects"
-            android:textSize="18sp"
-            android:textColor="#424242"
-            android:lineSpacingExtra="10dp"
-            android:fontFamily="sans-serif"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="10dp"
+            android:textColor="#424242"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnOpenArticle"
-            android:text="Ver artículo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#2E7D32"
-            android:textColor="@android:color/white"
-            android:textAllCaps="false"
-            android:padding="12dp"
             android:layout_marginBottom="24dp"
-            android:fontFamily="sans-serif-medium"/>
+            android:backgroundTint="#2E7D32"
+            android:fontFamily="sans-serif-medium"
+            android:padding="12dp"
+            android:text="Ver artículo"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 </ScrollView>

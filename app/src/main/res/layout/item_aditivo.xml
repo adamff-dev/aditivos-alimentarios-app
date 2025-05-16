@@ -1,12 +1,11 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_margin="5dp"
     android:background="@drawable/item_border_rounded"
     android:clickable="true"
     android:focusable="true"
-    android:layout_margin="5dp"
+    android:orientation="vertical"
     android:padding="8dp">
 
     <LinearLayout
@@ -18,22 +17,22 @@
             android:id="@+id/tvNumero"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Número"
-            android:textStyle="bold"
+            android:layout_gravity="start"
             android:layout_weight="1"
-            android:layout_gravity="start"/>
+            android:text="Número"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvToxicidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
+            android:layout_gravity="end"
             android:background="@drawable/border_rounded"
-            android:text="Toxicidad"
-            android:layout_gravity="end" />
+            android:paddingLeft="5dp"
+            android:paddingTop="2dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="2dp"
+            android:text="Toxicidad" />
     </LinearLayout>
 
     <TextView

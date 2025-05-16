@@ -2,7 +2,10 @@
 
 ## Description
 
-The **Aditivos Alimenticios** app allows users to search for food additives by number or name and display their toxicity levels. The data is retrieved through web scraping from a table on [www.aditivos-alimentarios.com](https://www.aditivos-alimentarios.com/) and stored locally in a database for offline searches. The database is updated when an internet connection is available.
+The **Aditivos Alimenticios** app allows users to search for food additives by number or name and
+display their toxicity levels. The data is retrieved through web scraping from a table
+on [www.aditivos-alimentarios.com](https://www.aditivos-alimentarios.com/) and stored locally in a
+database for offline searches. The database is updated when an internet connection is available.
 
 ## Features
 
@@ -16,7 +19,9 @@ The **Aditivos Alimenticios** app allows users to search for food additives by n
 
 - **Kotlin**: Programming language used for Android app development.
 - **SQLite**: Local database for storing food additives data.
-- **Web Scraping**: Data retrieval from [aditivos-alimentarios.com](https://www.aditivos-alimentarios.com/) using scraping techniques.
+- **Web Scraping**: Data retrieval
+  from [aditivos-alimentarios.com](https://www.aditivos-alimentarios.com/) using scraping
+  techniques.
 - **Coroutines**: Used for background operations and threading.
 
 ## Requirements
@@ -44,4 +49,5 @@ The **Aditivos Alimenticios** app allows users to search for food additives by n
 
 ## Contributing
 
-If you'd like to contribute to the project, feel free to fork the repository, make your changes, and submit a pull request. All contributions are welcome!ç
+If you'd like to contribute to the project, feel free to fork the repository, make your changes, and
+submit a pull request. All contributions are welcome!ç

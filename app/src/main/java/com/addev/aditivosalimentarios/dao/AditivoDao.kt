@@ -11,11 +11,13 @@ interface AditivoDao {
     @Query("SELECT * FROM additives WHERE UPPER(code) = UPPER(:term)")
     fun findByCode(term: String): List<AdditiveWithAltNames>
 
-    @Query("""
+    @Query(
+        """
         SELECT * FROM additives 
         WHERE LOWER(name) GLOB '*' || :term || '*' 
         OR id IN (SELECT additive_id FROM alt_names WHERE LOWER(alt_name) GLOB '*' || :term || '*')
-    """)
+    """
+    )
     fun findByName(term: String): List<AdditiveWithAltNames>
 
     // Función para buscar múltiples términos
@@ -23,9 +25,9 @@ interface AditivoDao {
         val results = mutableListOf<AdditiveWithAltNames>()
         for (term in terms) {
             val trimmedTerm = term.trim().replace("\\s+".toRegex(), " ").lowercase()
-            if (Regex("^E\\d{3,4}.+\$", RegexOption.IGNORE_CASE).matches(trimmedTerm)) {
+            if (Regex("^E\\d{3,4}.*\$", RegexOption.IGNORE_CASE).matches(trimmedTerm)) {
                 results.addAll(findByCode(trimmedTerm))
-            } else if (Regex("^\\d{3,4}.+$", RegexOption.IGNORE_CASE).matches(trimmedTerm)) {
+            } else if (Regex("^\\d{3,4}.*$", RegexOption.IGNORE_CASE).matches(trimmedTerm)) {
                 results.addAll(findByCode("E$trimmedTerm"))
             } else {
                 results.addAll(findByName(addTildeOptions(trimmedTerm)))

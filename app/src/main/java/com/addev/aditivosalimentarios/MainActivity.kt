@@ -60,7 +60,8 @@ class MainActivity : ComponentActivity() {
 
         etInput.setOnEditorActionListener { _, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH ||
-                (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)) {
+                (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)
+            ) {
                 val input = etInput.text.toString()
                 searchAditivos(input)
                 true
@@ -102,7 +103,8 @@ class MainActivity : ComponentActivity() {
 
     private fun loadAllAditivos() {
         CoroutineScope(Dispatchers.IO).launch {
-            val allAditivos = aditivoDao.getAllAditivos() // Método DAO para obtener todos los registros
+            val allAditivos =
+                aditivoDao.getAllAditivos() // Método DAO para obtener todos los registros
             withContext(Dispatchers.Main) {
                 aditivoAdapter = AditivoAdapter(allAditivos)
                 rvResults.adapter = aditivoAdapter

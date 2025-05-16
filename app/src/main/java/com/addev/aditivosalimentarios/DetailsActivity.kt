@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.addev.aditivosalimentarios.model.AltName
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -57,7 +56,10 @@ class DetailsActivity : AppCompatActivity() {
                 ?.replace(")", "")
                 ?: code
 
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("$ADITIVOS_ALIMENTARIOS_WEBSITE$codeFormatted.html"))
+            val intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("$ADITIVOS_ALIMENTARIOS_WEBSITE$codeFormatted.html")
+            )
             startActivity(intent)
         }
     }

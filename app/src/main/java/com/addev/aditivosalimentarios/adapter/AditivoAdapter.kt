@@ -2,7 +2,6 @@ package com.addev.aditivosalimentarios.adapter
 
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.addev.aditivosalimentarios.DetailsActivity
 import com.addev.aditivosalimentarios.R
-import com.addev.aditivosalimentarios.databinding.DetailsActivityBinding
 import com.addev.aditivosalimentarios.model.AdditiveWithAltNames
 
 

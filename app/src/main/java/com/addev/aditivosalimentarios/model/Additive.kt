@@ -13,6 +13,7 @@ class Additive {
     lateinit var toxicity: String
     var description: String? = null
     var uses: String? = null
+
     @ColumnInfo(name = "side_effects")
     var sideEffects: String? = null
 }

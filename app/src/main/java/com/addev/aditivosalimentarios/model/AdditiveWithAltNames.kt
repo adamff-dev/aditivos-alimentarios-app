@@ -1,7 +1,6 @@
 package com.addev.aditivosalimentarios.model
 
 import androidx.room.Embedded
-import androidx.room.Entity
 import androidx.room.Relation
 
 class AdditiveWithAltNames {
