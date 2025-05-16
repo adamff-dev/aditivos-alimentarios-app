@@ -51,6 +51,17 @@ class MainActivity : ComponentActivity() {
 
         loadAllAditivos()
 
+        etInput.setOnEditorActionListener { _, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH ||
+                (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)) {
+                val input = etInput.text.toString()
+                searchAditivos(input)
+                true
+            } else {
+                false
+            }
+        }
+
         btnSearch.setOnClickListener {
             val input = etInput.text.toString()
             searchAditivos(input)
