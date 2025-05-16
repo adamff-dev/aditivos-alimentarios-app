@@ -28,17 +28,19 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.6"
@@ -55,7 +57,12 @@ dependencies {
     implementation(libs.jsoup) // Ajusta la versión si hay una más reciente.
 
     // Room para la base de datos local.
-    implementation(libs.androidx.room.runtime) // Ajusta la versión si es necesario.
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.material)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx) // Ajusta la versión si es necesario.
 
     kapt("androidx.room:room-compiler:2.6.1")
 

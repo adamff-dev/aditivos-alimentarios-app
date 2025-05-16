@@ -22,17 +22,33 @@ interface AditivoDao {
     fun findByNumbersOrNames(terms: List<String>): List<AdditiveWithAltNames> {
         val results = mutableListOf<AdditiveWithAltNames>()
         for (term in terms) {
-            val trimmedTerm = term.trim()
-            // Verificar si el término es un número de aditivo utilizando regex
-            if (Regex("^E\\d{3,4}$", RegexOption.IGNORE_CASE).matches(trimmedTerm)) {
-                results.addAll(findByCode(trimmedTerm))
-            } else if (Regex("^\\d{3,4}$").matches(trimmedTerm)) {
-                results.addAll(findByCode("E$trimmedTerm"))
+            val trimmedTerm = term.trim().replace("\\s+".toRegex(), "").lowercase()
+            val normalizedTerm = normalizeCode(trimmedTerm)
+            if (Regex("^E\\d{3}[a-z]?(?:\\([ivx]+\\))?\$", RegexOption.IGNORE_CASE).matches(normalizedTerm)) {
+                results.addAll(findByCode(normalizedTerm))
+            } else if (Regex("^\\d{3}[a-z]?(?:\\([ivx]+\\))?\$", RegexOption.IGNORE_CASE).matches(normalizedTerm)) {
+                results.addAll(findByCode("E$normalizedTerm"))
             } else {
                 results.addAll(findByName(addTildeOptions(trimmedTerm)))
             }
+
         }
         return results.distinct()
+    }
+
+    fun normalizeCode(term: String): String {
+        // Expresión para capturar E opcional, número, letra opcional, y romanos opcionales (con o sin paréntesis)
+        val regex = Regex("^(e)?(\\d{3})([a-z])?(?:\\(?(iv|ix|v?i{0,3})\\)?)?$", RegexOption.IGNORE_CASE)
+        val match = regex.matchEntire(term)
+        return if (match != null) {
+            val (e, digits, letter, roman) = match.destructured
+            buildString {
+                if (e.isNotEmpty()) append(e.uppercase())
+                append(digits)
+                if (letter.isNotEmpty()) append(letter.lowercase())
+                if (roman.isNotEmpty()) append("(${roman.lowercase()})")
+            }
+        } else term
     }
 
     @Query("SELECT * FROM additives")
