@@ -13,7 +13,6 @@ import com.addev.aditivosalimentarios.R
 import com.addev.aditivosalimentarios.databinding.DetailsActivityBinding
 import com.addev.aditivosalimentarios.model.AdditiveWithAltNames
 
-private const val ADITIVOS_ALIMENTARIOS_WEBSITE = "https://www.aditivos-alimentarios.com/2016/01/"
 
 class AditivoAdapter(private val additives: List<AdditiveWithAltNames>) :
     RecyclerView.Adapter<AditivoAdapter.AditivoViewHolder>() {
@@ -48,17 +47,6 @@ class AditivoAdapter(private val additives: List<AdditiveWithAltNames>) :
         }
 
         // Configurar el clic para abrir el navegador
-//        holder.itemView.setOnClickListener {
-//            val codeFormatted = aditivo.additive?.code?.let { code ->
-//                if (code.contains('(')) {
-//                    code.replaceFirst('(', '-').replace(")", "")
-//                } else {
-//                    code
-//                }
-//            }
-//            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("$ADITIVOS_ALIMENTARIOS_WEBSITE$codeFormatted.html"))
-//            holder.itemView.context.startActivity(browserIntent)
-//        }
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, DetailsActivity::class.java).apply {

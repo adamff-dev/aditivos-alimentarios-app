@@ -198,5 +198,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <Button
+            android:id="@+id/btnOpenArticle"
+            android:text="Ver artículo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#2E7D32"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="sans-serif-medium"/>
+
     </LinearLayout>
 </ScrollView>

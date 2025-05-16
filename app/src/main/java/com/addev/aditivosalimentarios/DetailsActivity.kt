@@ -1,14 +1,17 @@
 package com.addev.aditivosalimentarios
 
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.addev.aditivosalimentarios.model.AltName
 
 class DetailsActivity : AppCompatActivity() {
 
-
+    private val ADITIVOS_ALIMENTARIOS_WEBSITE = "https://www.aditivos-alimentarios.com/2016/01/"
 
     private fun formatParagraphs(text: String?): String {
         if (text.isNullOrBlank()) return "No disponible"
@@ -46,5 +49,16 @@ class DetailsActivity : AppCompatActivity() {
             else -> "#757575"
         }
         tvToxicity.setBackgroundColor(Color.parseColor(badgeColor))
+
+        val btnOpenArticle = findViewById<Button>(R.id.btnOpenArticle)
+        btnOpenArticle.setOnClickListener {
+            val codeFormatted = code?.takeIf { it.contains('(') }
+                ?.replaceFirst('(', '-')
+                ?.replace(")", "")
+                ?: code
+
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("$ADITIVOS_ALIMENTARIOS_WEBSITE$codeFormatted.html"))
+            startActivity(intent)
+        }
     }
 }
