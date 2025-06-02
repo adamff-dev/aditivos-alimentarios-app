@@ -13,7 +13,7 @@ android {
         minSdk = 24
         targetSdk = 34
         versionCode = 1
-        versionName = "3"
+        versionName = "3.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -53,6 +53,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.okhttp)
+
     // Jsoup para realizar web scraping.
     implementation(libs.jsoup) // Ajusta la versión si hay una más reciente.
 
