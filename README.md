@@ -20,6 +20,16 @@ The **Aditivos Alimentarios** app allows users to search for food additives by n
   <img src="https://i.imgur.com/3XZDzhs.jpeg" width="300" />
 </div>
 
+## Contribution
+
+We welcome contributions of any kind — code, documentation, bug reports, or feature suggestions.
+
+If you find this project helpful and want to support its development, consider making a donation.
+
+Your support helps keep the project active and maintained. Thank you! 🙌
+
+<a target="_blank" href="https://www.buymeacoffee.com/rSiZtB3"><img style="width: 200px" src="https://i.imgur.com/KCk0bxY.png" /></a>
+
 ## Technologies
 
 - **Kotlin**: Programming language used for Android app development.
