@@ -15,6 +15,7 @@ import androidx.room.Room
 import com.addev.aditivosalimentarios.adapter.AditivoAdapter
 import com.addev.aditivosalimentarios.dao.AditivoDao
 import com.addev.aditivosalimentarios.database.AppDatabase
+import com.addev.aditivosalimentarios.service.UpdateChecker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,8 +23,12 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
 
-    private val dbName = "additives.db"
-    private val dbVersion = 2
+    companion object {
+        private const val DB_NAME = "additives.db"
+        private const val DB_VERSION = 2
+        private const val GITHUB_USER = "adamff-dev"
+        private const val GITHUB_REPO = "aditivos-alimentarios-app"
+    }
 
     private lateinit var aditivoDao: AditivoDao
     private lateinit var etInput: EditText
@@ -44,7 +49,7 @@ class MainActivity : ComponentActivity() {
         rvResults.layoutManager = LinearLayoutManager(this)
         loadingSpinner = findViewById(R.id.loadingSpinner)
 
-        resetDatabaseIfNeeded(applicationContext, dbName, dbVersion)
+        resetDatabaseIfNeeded(applicationContext, DB_NAME, DB_VERSION)
 
         // Inicializa la base de datos y el DAO
         val db = Room.databaseBuilder(
@@ -79,6 +84,8 @@ class MainActivity : ComponentActivity() {
             etInput.setText("")
             searchAditivos("")
         }
+
+        checkUpdates()
     }
 
     fun showLoadingSpinner() {
@@ -87,6 +94,17 @@ class MainActivity : ComponentActivity() {
 
     fun hideLoadingSpinner() {
         loadingSpinner.visibility = View.GONE
+    }
+
+    private fun checkUpdates() {
+        Thread {
+            val checker = UpdateChecker(
+                context = this,
+                githubUser = GITHUB_USER,
+                githubRepo = GITHUB_REPO
+            )
+            checker.checkForUpdateSync()
+        }.start()
     }
 
     private fun resetDatabaseIfNeeded(context: Context, dbName: String, currentVersion: Int) {
