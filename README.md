@@ -14,7 +14,11 @@ The **Aditivos Alimentarios** app allows users to search for food additives by n
 
 ## Screenshot
 
-<img src="https://i.imgur.com/IoDOHPY.jpeg" width="300" />
+<div style="display: flex; gap: 20px;">
+  <img src="https://i.imgur.com/ujSpHQp.jpeg" width="300" />
+  <img src="https://i.imgur.com/ebp2eUF.jpeg" width="300" />
+  <img src="https://i.imgur.com/3XZDzhs.jpeg" width="300" />
+</div>
 
 ## Technologies
 
