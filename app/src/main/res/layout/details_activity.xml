@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
     android:padding="24dp">
 
     <LinearLayout
@@ -60,7 +59,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6dp"
-            android:textColor="#424242"
+            android:textColor="?attr/textColor"
             android:textSize="18sp" />
 
         <TextView
@@ -87,7 +86,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6dp"
-            android:textColor="#424242"
+            android:textColor="?attr/textColor"
             android:textSize="18sp" />
 
         <TextView
@@ -114,7 +113,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="6dp"
-            android:textColor="#424242"
+            android:textColor="?attr/textColor"
             android:textSize="18sp" />
 
         <TextView
@@ -141,7 +140,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="10dp"
-            android:textColor="#424242"
+            android:textColor="?attr/textColor"
             android:textSize="18sp" />
 
         <TextView
@@ -168,7 +167,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="10dp"
-            android:textColor="#424242"
+            android:textColor="?attr/textColor"
             android:textSize="18sp" />
 
         <TextView
@@ -195,7 +194,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="10dp"
-            android:textColor="#424242"
+            android:textColor="?attr/textColor"
             android:textSize="18sp" />
 
         <Button

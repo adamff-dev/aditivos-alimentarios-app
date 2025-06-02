@@ -6,5 +6,8 @@
     <style name="Base.Theme.AditivosAlimentarios" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="cardBackgroundColor">@color/card_background_light</item>
+        <item name="cardTextColor">@color/card_text_dark</item>
+        <item name="textColor">@color/text_light</item>
     </style>
 </resources>

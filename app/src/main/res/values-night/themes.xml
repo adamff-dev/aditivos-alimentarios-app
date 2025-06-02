@@ -1,7 +1,10 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.AditivosAlimentarios" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="cardBackgroundColor">@color/card_background_dark</item>
+        <item name="cardTextColor">@color/card_text_dark</item>
+        <item name="textColor">@color/text_dark</item>
     </style>
 </resources>

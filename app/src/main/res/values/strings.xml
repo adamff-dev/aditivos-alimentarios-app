@@ -4,6 +4,12 @@
     <string name="search_placeholder">142, E150, Carotenos...</string>
     <string name="clear">Limpiar</string>
     <string name="search">Buscar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+
+    <!-- Updates -->
+    <string name="update_available_title">Actualización disponible</string>
+    <string name="update_available_message">Hay una nueva versión: %1$s\n¿Quiere descargarla ahora?</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
